@@ -1,9 +1,12 @@
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.stream.events.Characters;
 
 public class Password {
     /**
@@ -119,7 +122,18 @@ public class Password {
      */
     public static String generatePassword(int nbCar) {
 
-        // Code here
+        if (nbCar < 12) {
+            throw new IllegalArgumentException("Au moins 12 caractères !");
+        }
+        String listeMajuscules = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String listeMinuscules = "abcdefghijklmnopqrstuvwxyz";
+        String listeChiffres = "0123456789";
+        String listeCaracteresSpeciaux = "!#|@^]*$£§%";
+
+        List<Characters> resultat = new ArrayList();
+        SecureRandom random = new SecureRandom();
+
+        resultat.add();
 
         return null;
     }
