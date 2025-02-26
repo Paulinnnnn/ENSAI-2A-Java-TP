@@ -98,10 +98,11 @@ public class Password {
      *         true if the password is strong, false otherwise
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
-
-        // Code here
-
-        return null;
+        HashMap<String, Boolean> result = new HashMap<>();
+        for (String motDePasse : passwords) {
+            result.put(motDePasse, isStrongPassword(motDePasse));
+        }
+        return result;
     }
 
     /**
