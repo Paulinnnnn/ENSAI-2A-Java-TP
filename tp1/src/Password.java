@@ -76,15 +76,15 @@ public class Password {
             c = password.charAt(i);
             if (Character.isUpperCase(c))
                 HasUpperCase = true;
-            if (Character.isLowerCase(c))
+            else if (Character.isLowerCase(c))
                 HasLowerCase = true;
-            if (Character.isDigit(c))
+            else if (Character.isDigit(c))
                 HasDigit = true;
-            if (Character.isWhitespace(c))
+            else if (Character.isWhitespace(c))
                 return false;
-            if (HasDigit && HasLowerCase && HasUpperCase)
-                return true;
         }
+        if (HasDigit && HasLowerCase && HasUpperCase)
+            return true;
 
         return false;
     }
