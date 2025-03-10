@@ -3,6 +3,8 @@ package fr.ensai.library;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +15,21 @@ public class Library {
 
     public Library(String name, List<Book> books) {
         this.name = name;
-        this.books = books;
+        this.books = (books != null) ? new ArrayList<Book>(books) : new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void displayBooks() {
+        if (books.size() > 0) {
+            for (Book livre : books) {
+                System.out.println(livre.toString());
+            }
+        } else {
+            System.out.println("Pas de livre, désolé !");
+        }
     }
 
     /**
@@ -51,7 +67,7 @@ public class Library {
                     }
                     Book book = new Book(isbn, title, author, year, pageCount);
 
-                    this.addIem(book);
+                    this.addBook(book);
                 }
             }
         } catch (
