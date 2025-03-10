@@ -11,20 +11,20 @@ import java.util.Map;
 
 public class Library {
     private String name;
-    private List<Book> books;
+    private List<Item> items;
 
-    public Library(String name, List<Book> books) {
+    public Library(String name, List<Item> items) {
         this.name = name;
-        this.books = (books != null) ? new ArrayList<Book>(books) : new ArrayList<>();
+        this.items = (items != null) ? new ArrayList<Item>(items) : new ArrayList<>();
     }
 
-    public void addBook(Book book) {
-        books.add(book);
+    public void addItem(Item item) {
+        items.add(item);
     }
 
-    public void displayBooks() {
-        if (books.size() > 0) {
-            for (Book livre : books) {
+    public void displayItems() {
+        if (items.size() > 0) {
+            for (Item livre : items) {
                 System.out.println(livre.toString());
             }
         } else {
@@ -33,13 +33,13 @@ public class Library {
     }
 
     /**
-     * Loads books from a CSV file and adds them to the library.
+     * Loads items from a CSV file and adds them to the library.
      * 
-     * @param filePath The path to the CSV file containing book data.
+     * @param filePath The path to the CSV file containing item data.
      * @throws IOException If there is an error reading the file, an
      *                     {@link IOException} will be thrown.
      */
-    public void loadBooksFromCSV(String filePath) {
+    public void loadItemsFromCSV(String filePath) {
 
         URL url = getClass().getClassLoader().getResource(filePath);
 
@@ -65,9 +65,9 @@ public class Library {
                         authors.put(authorName, author);
                         System.out.println(author.toString());
                     }
-                    Book book = new Book(isbn, title, author, year, pageCount);
+                    Item item = new Book(isbn, title, author, year, pageCount);
 
-                    this.addBook(book);
+                    this.addItem(item);
                 }
             }
         } catch (

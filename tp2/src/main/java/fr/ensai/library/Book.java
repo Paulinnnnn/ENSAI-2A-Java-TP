@@ -13,11 +13,9 @@ public class Book extends Item {
      * Constructs a new Book object.
      */
     public Book(String isbn, String title, Author author, int year, int pageCount) {
+        super(title, year, pageCount);
         this.isbn = isbn;
-        this.title = title;
         this.author = author;
-        this.year = year;
-        this.pageCount = pageCount;
     }
 
     public Author getAuthor() {
